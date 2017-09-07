@@ -9,10 +9,16 @@ module.exports = function(defaults) {
       'bootstrapVersion': 3,
       'importBootstrapFont': true,
       'importBootstrapCSS': false
+    },
+    minifyJS: {
+      enabled: false
     }
   });
 
-  // app.import('bower_components/bootstrap/dist/js/bootstrap.min.js');
+  if(process.env.EMBER_ENV === 'development') {
+    app.import('bower_components/bootstrap/dist/js/bootstrap.min.js');
+  }
+  
   // Use `app.import` to add additional libraries to the generated
   // output files.
   //
